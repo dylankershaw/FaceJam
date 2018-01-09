@@ -9,7 +9,7 @@ class WebcamContainer extends Component {
     setInterval(() => {
       const screenshot = this.webcam.getScreenshot();
       this.props.getEmotions(screenshot);
-    }, 5000);
+    }, 10000);
   }
 
   render() {

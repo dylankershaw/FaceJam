@@ -1,17 +1,11 @@
-import cloudinary from "cloudinary";
+import * as apiHelpers from "../api";
+
 export const SET_EMOTIONS = "SET_EMOTIONS";
 
 export function getEmotions(img) {
   return function(dispatch) {
-    cloudinary.v2.uploader.unsigned_upload(
-      img,
-      "face-jam-unsigned",
-      {
-        cloud_name: "dkershaw"
-      },
-      function(error, result) {
-        console.log(result);
-      }
-    );
+    apiHelpers.cloudinaryUploader(img).then(resp => {
+      apiHelpers.kairosPoster(resp.secure_url);
+    });
   };
 }
