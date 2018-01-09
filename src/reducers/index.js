@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
 
-const rootReducer = combineReducers({});
+import emotionReducer from "./emotion";
+
+const rootReducer = combineReducers({
+  emotion: emotionReducer
+});
 
 export default rootReducer;

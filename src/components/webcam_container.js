@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Webcam from "react-webcam";
+
+import { getEmotions } from "../actions";
 
 class WebcamContainer extends Component {
   componentDidMount() {
     setInterval(() => {
       const screenshot = this.webcam.getScreenshot();
-      console.log(screenshot);
+      this.props.getEmotions(screenshot);
     }, 5000);
   }
 
@@ -21,4 +24,4 @@ class WebcamContainer extends Component {
   }
 }
 
-export default WebcamContainer;
+export default connect(null, { getEmotions })(WebcamContainer);
