@@ -1,8 +1,8 @@
 import cloudinary from "cloudinary";
 
 const headers = {
-  app_id: "e8f3158e",
-  app_key: "4ea59d811ef35b9d747f233d4ab6db11",
+  app_id: process.env.KAIROS_APP_ID,
+  app_key: process.env.KAIROS_APP_KEY,
   "Content-Type": "application/json"
 };
 
