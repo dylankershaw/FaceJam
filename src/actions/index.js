@@ -8,8 +8,11 @@ export function getEmotions(img) {
       apiHelpers
         .kairosPoster(resp.secure_url)
         .then(json => apiHelpers.emotionGetter(json.id))
-        .then(resp => {
-          console.log(resp);
+        .then(data => {
+          return dispatch({
+            type: SET_EMOTIONS,
+            payload: data
+          });
         });
     });
   };
