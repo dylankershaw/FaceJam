@@ -13,8 +13,11 @@ export default function(
 ) {
   switch (action.type) {
     case SET_EMOTIONS:
-      if (action.payload.impressions[0]) {
-        return action.payload.impressions[0].average_emotion;
+      const impressions = action.payload.impressions;
+
+      // runs if face and impressions are detected
+      if (impressions && impressions[0]) {
+        return impressions[0].average_emotion;
       } else {
         return state;
       }
